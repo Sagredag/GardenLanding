@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17° Aniversario Garden City Casino</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Audio Player (Oculto) -->
+    <audio id="bg-music" loop>
+        <source src="tu-cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Pantalla de Inicio -->
+    <div id="intro-screen" class="screen active">
+        <div class="particles" id="particles-intro"></div>
+        <div class="content intro-content">
+            <p class="subtitle">Tienes una invitación muy especial</p>
+            <h1 class="main-title gold-text">17° ANIVERSARIO</h1>
+            <button id="open-btn" class="gold-btn">HAZ CLIC AQUÍ</button>
+            <p class="small-text">CLIC EN EL BOTÓN PARA ABRIR</p>
+        </div>
+    </div>
+
+    <!-- Pantalla Principal -->
+    <div id="main-screen" class="screen hidden">
+        <div class="particles" id="particles-main"></div>
+        <div class="content main-content">
+            
+            <p class="top-text">TE INVITO A CELEBRAR EL</p>
+            <p class="top-text-bold">17° ANIVERSARIO</p>
+            
+            <h1 class="giant-number gold-text">17</h1>
+            <h2 class="main-title gold-text">GARDEN CITY CASINO</h2>
+            
+            <div class="invitation-text">
+                <p>Nos complace invitarle a celebrar el Decimo Sétimo Aniversario de Garden City Casino.</p>
+                <p>Una noche llena de entretenimiento, elegancia, premios y momentos inolvidables.</p>
+                <p>Disfrute de una velada especial con juegos, música en vivo, sorteos exclusivos, cócteles y muchas sorpresas preparadas para agradecer su preferencia y acompañamiento durante este importante año para nuestra Institución.</p>
+                <p>Celebramos juntos un año más de emoción y entretenimiento.</p>
+                <p>Será un honor contar con su distinguida presencia en esta celebración.</p>
+            </div>
+
+            <div class="image-placeholder">
+                <!-- Aquí puedes poner una foto del casino -->
+                <img src="https://via.placeholder.com/300x400/111/d4af37?text=Foto+del+Casino" alt="Garden City Casino">
+            </div>
+
+            <div class="date-section gold-text">
+                <h3>27 de Junio</h3>
+                <p>📅 7:00 PM (Lorem ipsum)</p>
+            </div>
+
+            <div class="countdown-container">
+                <p class="subtitle-small">FALTA TAN SOLO:</p>
+                <div id="countdown" class="countdown">
+                    <div class="time-box"><span id="days">00</span><p>DÍAS</p></div>
+                    <div class="time-box"><span id="hours">00</span><p>HORAS</p></div>
+                    <div class="time-box"><span id="minutes">00</span><p>MINUTOS</p></div>
+                    <div class="time-box"><span id="seconds">00</span><p>SEGUNDOS</p></div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <div class="icon">📍</div>
+                <p class="subtitle-small">DIRECCIÓN</p>
+                <p>Jirón Francisco Pizarro 638, Trujillo 13001</p>
+                <a href="https://maps.app.goo.gl/WDenoYnKiX3a9sV18" target="_blank" class="gold-btn small-btn">VER UBICACIÓN</a>
+            </div>
+
+            <div class="dress-code-section">
+                <div class="icon">👕</div>
+                <p class="subtitle-small">CÓDIGO DE VESTIMENTA</p>
+                <p>Elegante / Casino Glamour</p>
+            </div>
+
+            <div class="gifts-section border-box">
+                <div class="icon">🎁</div>
+                <p class="subtitle-small">LOREM IPSUM</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Lorem: Ipsum Dolor</p>
+            </div>
+
+            <div class="confirmation-section">
+                <div class="icon">👤</div>
+                <p class="subtitle-small">CONFIRMACIÓN DE ASISTENCIA</p>
+                <p>Por favor confirma tu asistencia en el siguiente botón.</p>
+                <a href="#" id="whatsapp-link" target="_blank" class="gold-btn">CONFIRMAR AQUÍ</a>
+            </div>
+
+            <h2 class="footer-title gold-text">TE ESPERAMOS</h2>
+            
+            <button id="pause-btn" class="pause-music">⏸️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
