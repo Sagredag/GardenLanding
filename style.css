@@ -138,52 +138,26 @@ body {
     margin-bottom: 10px;
 }
 
-/* Logos Container - Marco elegante blanco */
-.logos-wrapper {
+/* Main Logo Landscape */
+.logo-main-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 0 10px;
     margin: 30px 0;
+    padding: 0 20px;
 }
 
-.logos-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding: 40px 50px;
-    background: #ffffff; /* Fondo blanco para disimular los JPGs */
-    border: 3px solid var(--gold);
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.4);
-    width: 100%;
-    max-width: 600px;
-}
-
-/* Doble borde interno elegante */
-.logos-container::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 1px dashed var(--gold-dark);
-    border-radius: 6px;
-    pointer-events: none;
-}
-
-.logos-container img {
-    max-width: 220px;
-    width: 100%;
+.main-logo {
+    max-width: 100%;
+    width: 400px; /* Tamaño ideal para logo landscape */
+    height: auto;
     object-fit: contain;
-    position: relative;
-    z-index: 1;
-    /* Al usar blend-mode, si el blanco del jpg es ligeramente distinto, se fusiona perfectamente con el blanco del fondo */
-    mix-blend-mode: multiply;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)); /* Resplandor dorado suave */
+    transition: transform 0.4s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.05);
 }
 
 /* Envelope */
