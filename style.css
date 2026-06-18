@@ -18,6 +18,21 @@ body {
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     position: relative;
+    margin: 0;
+}
+
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+    opacity: 0.3; /* Para que el contenido sea legible */
 }
 
 /* Efecto de partículas de fondo */
@@ -121,6 +136,145 @@ body {
     letter-spacing: 2px;
     color: #aaa;
     margin-bottom: 10px;
+}
+
+/* Logos Container */
+.logos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.logos-container img {
+    border-radius: 10px;
+    border: 2px solid var(--gold-dark);
+    max-width: 250px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #fff; /* En caso los logos necesiten fondo */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Envelope */
+.envelope-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    perspective: 1000px;
+    padding: 20px;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #c5a030;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+    border-radius: 5px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #aa8c2c;
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+    z-index: 3;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 100px solid #d4af37;
+    z-index: 2;
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-right: 150px solid #bd9724;
+    z-index: 1;
+}
+
+.envelope-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-left: 150px solid #bd9724;
+    z-index: 1;
+}
+
+.envelope-content {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    background: #0a0a0a;
+    margin: 0 10px;
+    border-radius: 5px;
+    padding: 10px;
+    transform: translateY(0);
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    opacity: 0;
+}
+
+.envelope.open .envelope-content {
+    transform: translateY(-80px);
+    opacity: 1;
+    z-index: 4;
+}
+
+.envelope-content .subtitle {
+    font-size: 1rem;
+    margin: 0;
+}
+.envelope-content .main-title {
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+.envelope-content .small-text {
+    font-size: 0.6rem;
 }
 
 /* Botones */

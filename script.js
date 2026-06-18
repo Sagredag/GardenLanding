@@ -3,39 +3,55 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica de la Pantalla de Inicio y Audio ---
     const introScreen = document.getElementById('intro-screen');
     const mainScreen = document.getElementById('main-screen');
-    const openBtn = document.getElementById('open-btn');
-    const audio = document.getElementById('bg-music');
+    const envelope = document.getElementById('envelope');
+    const bgAudio = document.getElementById('bg-music');
+    const effectAudio = document.getElementById('open-effect');
     const pauseBtn = document.getElementById('pause-btn');
+    const bgVideo = document.getElementById('bg-video');
 
-    openBtn.addEventListener('click', () => {
-        // Transición de pantallas
-        introScreen.classList.remove('active');
-        introScreen.classList.add('hidden');
+    envelope.addEventListener('click', () => {
+        // Reproducir efecto del sobre
+        effectAudio.play().catch(err => console.log("Effect play failed:", err));
         
+        // Animar el sobre abriéndose
+        envelope.classList.add('open');
+        
+        // Transición de pantallas
         setTimeout(() => {
-            introScreen.style.display = 'none';
-            mainScreen.style.display = 'flex';
+            introScreen.classList.remove('active');
+            introScreen.classList.add('hidden');
             
-            // Un pequeño delay para que la clase de animación funcione bien
             setTimeout(() => {
-                mainScreen.classList.remove('hidden');
-                mainScreen.classList.add('active');
-            }, 50);
-        }, 500);
+                introScreen.style.display = 'none';
+                mainScreen.style.display = 'flex';
+                
+                // Un pequeño delay para que la clase de animación funcione bien
+                setTimeout(() => {
+                    mainScreen.classList.remove('hidden');
+                    mainScreen.classList.add('active');
+                }, 50);
+            }, 500);
 
-        // Reproducir música (solo se puede iniciar con interacción del usuario)
-        audio.play().then(() => {
-            pauseBtn.style.display = 'block';
-        }).catch(err => console.log("Audio play failed:", err));
+            // Reproducir música (solo se puede iniciar con interacción del usuario)
+            bgAudio.play().then(() => {
+                pauseBtn.style.display = 'block';
+            }).catch(err => console.log("Audio play failed:", err));
+            
+            // Asegurarnos que el video corra
+            if (bgVideo && bgVideo.paused) {
+                bgVideo.play().catch(err => console.log("Video play failed:", err));
+            }
+
+        }, 1500); // Darle tiempo a la animación del sobre
     });
 
     // Controlar pausa/reproducción
     pauseBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
+        if (bgAudio.paused) {
+            bgAudio.play();
             pauseBtn.textContent = '⏸️';
         } else {
-            audio.pause();
+            bgAudio.pause();
             pauseBtn.textContent = '▶️';
         }
     });
