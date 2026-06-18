@@ -148,13 +148,11 @@ body {
 }
 
 .logos-container img {
-    border-radius: 10px;
-    border: 2px solid var(--gold-dark);
     max-width: 250px;
     width: 100%;
     object-fit: contain;
-    background-color: #fff; /* En caso los logos necesiten fondo */
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    /* Al ser PNG transparente, no necesitamos fondo blanco, ni borde, para que se vea integrado */
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
 }
 
 /* Envelope */

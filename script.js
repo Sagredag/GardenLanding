@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgVideo = document.getElementById('bg-video');
 
     envelope.addEventListener('click', () => {
-        // Reproducir efecto del sobre
+        // Reproducir efecto del sobre de forma inmediata
+        effectAudio.currentTime = 0;
         effectAudio.play().catch(err => console.log("Effect play failed:", err));
         
         // Animar el sobre abriéndose
